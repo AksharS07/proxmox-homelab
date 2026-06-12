@@ -150,3 +150,36 @@
 **Realization:** This is a hardware problem, not software
 **Impact:** Shifted from "optimize software" to "work around hardware limitation"
 **Output:** Strategy change—server pulls from internet, not relying on local transfers
+
+---
+
+## Phase 9: Immich Installation & RAM Upgrade (June 12, 2026)
+**Goal:** Self-hosted Google Photos replacement for phone backup
+
+**Actions:**
+- Discovered "container immich-server is unhealthy" error
+- Diagnosed root cause: Linux OOM (Out of Memory) Killer due to 2GB container limit
+- Accessed Proxmox -> MyCloud LXC -> Resources
+- Upgraded container memory from 2GB to 4GB (Host has 12GB total)
+- Restarted container
+- Installed "Immich without machine learning" via CasaOS to optimize for Pentium G3240
+- Configured Storage Template to neatly organize files (`{{y}}/{{y}}-{{MM}}-{{dd}}/{{filename}}`)
+- Connected Android phone app via Tailscale IP
+
+**Key Lesson:** Container resources must match application requirements; Immich is heavy!
+**Output:** Phone photos now backing up automatically to the WD Purple drive
+
+---
+
+## Phase 10: Jellyfin Media Server (June 12, 2026)
+**Goal:** Self-hosted Netflix for local media streaming
+
+**Actions:**
+- Installed standard Jellyfin via CasaOS App Store (avoided Nvidia GPU version due to hardware limits)
+- Created "Movies" media library
+- Mapped library to `/DATA/Cloud_Drive` (where SMB shares are located)
+- Dropped test 10-bit x265 HEVC movie into the folder
+- Jellyfin automatically scraped metadata (posters, cast, synopsis)
+
+**Realization:** The server can stream high-quality media directly to devices, bypassing the 5 MB/s transfer speed bottleneck for playback.
+**Output:** Private Netflix is live and ready for Radarr/Sonarr integration.

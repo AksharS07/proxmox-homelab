@@ -42,16 +42,17 @@ To keep this README clean, the detailed documentation has been split into dedica
 
 ## Current Status
 
-### Working 
+### Working ✅
 - Proxmox hypervisor (continuous uptime)
-- Ubuntu container (2 cores, 2GB RAM, resource-efficient)
+- Ubuntu container (2 cores, 4GB+ RAM, resource-efficient)
 - CasaOS dashboard (accessible from browser)
 - Samba file sharing (Windows/Linux/Android)
-- Tailscale VPN (3 devices connected)
+- Tailscale VPN (secure mesh network)
+- **Immich** (Google Photos replacement & background sync)
+- **Jellyfin** (Self-hosted media streaming)
+- **Radarr/Sonarr + Prowlarr** (Fully automated media stack)
 
-### Planned 
-- Jellyfin (self-hosted Netflix)
-- Radarr/Sonarr (automated downloads)
+### Planned 🚧
 - AdGuard Home (network ad-blocking)
 
 ## Key Learnings
