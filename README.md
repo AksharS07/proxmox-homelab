@@ -18,6 +18,7 @@ To keep this README clean, the detailed documentation has been split into dedica
 -  **[System Architecture](docs/ARCHITECTURE.md)**
 -  **[Security Architecture](docs/SECURITY.md)**
 -  **[Phase-by-Phase Setup Journey](docs/SETUP_JOURNEY.md)**
+-  **[Media Server Automation & Fixes](docs/MEDIA_AUTOMATION.md)**
 
 ## The Challenge
 
@@ -44,16 +45,17 @@ To keep this README clean, the detailed documentation has been split into dedica
 
 ### Working ✅
 - Proxmox hypervisor (continuous uptime)
-- Ubuntu container (2 cores, 4GB+ RAM, resource-efficient)
+- Ubuntu container (2 cores, 8GB RAM, resource-efficient & crash-proof)
 - CasaOS dashboard (accessible from browser)
 - Samba file sharing (Windows/Linux/Android)
 - Tailscale VPN (secure mesh network)
 - **Immich** (Google Photos replacement & background sync)
 - **Jellyfin** (Self-hosted media streaming)
 - **Radarr/Sonarr + Prowlarr** (Fully automated media stack)
+- **AdGuard Home** (Network-wide ad-blocking & DNS overriding)
 
 ### Planned 🚧
-- AdGuard Home (network ad-blocking)
+- External backup drive (3-2-1 backup strategy)
 
 ## Key Learnings
 
@@ -71,5 +73,5 @@ To keep this README clean, the detailed documentation has been split into dedica
 ---
 
 **Status:** Actively maintained  
-**Last Updated:** June 12, 2026  
+**Last Updated:** June 14, 2026  
 **Uptime:** Continuous since installation
