@@ -47,3 +47,19 @@ Installed the **Jellyfin Intro Skipper** plugin to bring Netflix-style "Skip Int
 - **Repository:** `https://intro-skipper.org/manifest.json`
 - **Configuration:** Set to automatically analyze new media for Introductions and Credits.
 - **Web UI:** Relies on the **File Transformation Plugin** to inject the physical "Skip" button into the web browser player.
+
+## 5. Kavita (Manga/Comic Reader)
+Installed Kavita via the `jvmilazz0/kavita:latest` Docker image to self-host manga and comics.
+
+### Volume Mapping & Setup
+- **Config:** `Host: /DATA/AppData/kavita -> Container: /kavita/config`
+- **Media:** `Host: /DATA/Media/Comics -> Container: /manga`
+- **Library Root:** Inside the Kavita UI, libraries must be pointed directly to the root mapped folder (`/manga`), allowing Kavita to naturally discover series folders (e.g., `Manga`) inside it.
+
+### Troubleshooting: "Red Exclamation Marks" & 0 Series
+Because files transferred via Windows TeraCopy over Samba lock permissions to the Windows user, Kavita (running inside Docker) will fail to read them and throw a "CANNOT READ" red exclamation mark.
+- **The Fix (Proxmox Console):** Do not rely on CasaOS's UI or Docker `PUID=0`. Open the Proxmox Console, log into the Ubuntu VM, and run `sudo chmod -R 777 /DATA/Media/Comics` to obliterate Windows file locks.
+
+### Best Practices for Weak CPUs
+- **Avoid Heavy Compression:** Do not use `Flame Comics` 6GB batch releases or any releases utilizing modern WebP/JPEGXL encoding. The Pentium G3240 lacks **AVX Instructions**. When Kavita attempts to process these images, the CPU crashes, resulting in endless "Refreshing Covers 0%" bugs.
+- **The Golden Standard:** Always use `1r0n` releases (e.g., `1.2GB`). They use standardized `CBZ` formatting with highly optimized JPEGs that bypass the AVX limitation entirely.

@@ -51,6 +51,7 @@ To keep this README clean, the detailed documentation has been split into dedica
 - Tailscale VPN (secure mesh network)
 - **Immich** (Google Photos replacement & background sync)
 - **Jellyfin** (Self-hosted media streaming)
+- **Kavita** (Self-hosted Manga/Comic Reader & OPDS Server)
 - **Radarr/Sonarr + Prowlarr** (Fully automated media stack)
 - **AdGuard Home** (Network-wide ad-blocking & DNS overriding)
 
